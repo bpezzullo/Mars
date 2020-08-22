@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    
+
+        <div class=" jumbotron text-center  pt-3 pb-1" style="filter:alpha(opacity=50); opacity:0.5;">
+            <p><strong>Latest News:</strong>  {{news.title}}</p>
+            <br>
+            <p>{{ news.text }}</p>
+        </div>
+        <div class="soft">
+
+
+            {% if pictures %}
+                {% for pic in pictures %}
+                    <h2>{{ pic.title }}</h2>
+                    <img src={{ pic.url }} alt={{pic.name}} width="500" height="600">
+                {% endfor %}
+            {% else %}
+                <title>Select the Refresh Hemisphere button to see pictures</title>
+            {% endif %}
+       </div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content%}
+    {% if data %}
+
+        {{data}}
+
+    {% else %}
+        <p><a class="btn btn-primary btn-lg" href="/scrape_mars_data" role="button">Refresh the data</a></p>
+    {% endif %}
+
+{% endblock content %}
