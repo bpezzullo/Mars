@@ -82,7 +82,8 @@ def scrape_mars_data():
     with open('Resources/mars_facts.html', 'r') as file:
         data = file.read()
     
-    data_dict = {'html' : data}
+    data_dict = {'html' : data,
+                'file' : 'Resources/mars_facts.html'}
 
     return data_dict
 

@@ -2,11 +2,12 @@
 
 {% block content%}
     {% if data %}
-
-        {{data}}
-
+        <!-- <link href="{{ data.file }}" rel="import" /> -->
+        {{ data }}
     {% else %}
+
         <p><a class="btn btn-primary btn-lg" href="/scrape_mars_data" role="button">Refresh the data</a></p>
+
     {% endif %}
 
 {% endblock content %}

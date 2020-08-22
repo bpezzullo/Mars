@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
     <style>
-        .bg {
+        .bg1 {
               /* The image used */
               background-image: url("{{ mars_img.url }}");
           
@@ -28,6 +28,7 @@
     {% endif %}
 </head>
 <body>
+  <div class="bg1">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/about">Mission to Mars</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,8 +52,6 @@
           </ul>
         </div>
       </nav>
-    <div class="bg">
-
         {% block content %} {% endblock %}
 
     </div>

@@ -39,7 +39,7 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_app")
 @app.route("/home")
 def welcome():
     # pull information from the mongo db
-    pictures = mongo.db.mars_pic.find_one()
+    pictures = mongo.db.mars_pic.find()
     news = mongo.db.mars_news.find_one()
     images = mongo.db.mars_img.find_one()
     
@@ -56,10 +56,11 @@ def about():
 def data():
 
     images = mongo.db.mars_img.find_one()
-    data = mongo.db.mars_data.find_one()
-    html_string = data['html']
+    # data = mongo.db.mars_data.find_one()
+    with open('Resources/mars_facts.html', 'r') as file:
+        data = file.read()
 
-    return render_template('data.html', title='Mars Data', mars_img=images, data=html_string)
+    return render_template('data.html', title='Mars Data', mars_img=images, data=data)
 
 
 @app.route("/scrape_feature_image")
@@ -102,9 +103,15 @@ def scrape_mars_hemi():
 
     # Run the scrape function
     hemisphere = mtm.scrape_mars_hemi()
+    #hemisphere = [{'title': 'Cerberus Hemisphere Enhanced', 'url': 'https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg'},
+    #  {'title': 'Schiaparelli Hemisphere Enhanced', 'url': 'https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg'}, 
+    # {'title': 'Syrtis Major Hemisphere Enhanced', 'url': 'https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg'}, 
+    # {'title': 'Valles Marineris Hemisphere Enhanced', 'url': 'https://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg'}]
 
-    # Update the Mongo database using update and upsert=True
-    mongo.db.mars_pic.update({}, hemisphere, upsert=True)
+    for hemi_dict in hemisphere:
+
+        # Update the Mongo database using update and upsert=True
+        mongo.db.mars_pic.update(hemi_dict, hemi_dict, upsert=True)
 
     # Redirect back to home page
     return redirect("/")

@@ -8,19 +8,17 @@
             <br>
             <p>{{ news.text }}</p>
         </div>
-        <div class="soft">
-
-
+        <div >
             {% if pictures %}
                 {% for pic in pictures %}
                     <h2>{{ pic.title }}</h2>
-                    <img src={{ pic.url }} alt={{pic.name}} width="500" height="600">
+                    <img src={{ pic.url }} alt={{pic.name}} width="200" height="300">
                 {% endfor %}
             {% else %}
                 <title>Select the Refresh Hemisphere button to see pictures</title>
             {% endif %}
        </div>
-
+       <div class="bg1">
 
 
 {% endblock content %}
