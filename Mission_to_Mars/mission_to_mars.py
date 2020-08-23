@@ -71,21 +71,22 @@ def scrape_mars_data():
 
     url = 'https://space-facts.com/mars/'
 
+    # Read all the tables from the URL
     tables = pd.read_html(url)
-    tables
 
+    # Take the first table
     df = tables[0]
 
-    # Export the city data into an html file
-    df.to_html(open('Resources/mars_facts.html', 'w', encoding="utf-8"))
+    # set the column names
+    df = df.rename(columns= {0: '  ', 1 :'Mars Statistics'})
+    df.set_index("  ", inplace=True)
+    # Export the mars data into an html file
+    df.to_html(open('Templates/mars_facts.html', 'w', encoding="utf-8"))
 
-    with open('Resources/mars_facts.html', 'r') as file:
-        data = file.read()
-    
-    data_dict = {'html' : data,
-                'file' : 'Resources/mars_facts.html'}
+    # set the file name to data"
+    data = 'mars_facts.html'
 
-    return data_dict
+    return data
 
 
 # # Scrape the website -  for the 4 urls images

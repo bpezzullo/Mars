@@ -8,8 +8,8 @@
 
     <style>
         .bg1 {
-              /* The image used */
-              background-image: url("{{ mars_img.url }}");
+            /* The image used */
+            background-image: url({{ mars_img.url }});
           
           /* Full height */
           height: 100%;
@@ -17,8 +17,16 @@
           /* Center and scale the image nicely */
           background-position: center;
           background-repeat: no-repeat;
-          background-size: cover;}
-          
+          background-size: cover;
+        }
+        .dataframe {
+          background-color:white;
+          font-size: 20px;
+          size: 40px;
+        }
+        .mabout {
+          font-size: 20px;
+        }
   </style> 
 
     {% if title %}
@@ -28,7 +36,7 @@
     {% endif %}
 </head>
 <body>
-  <div class="bg1">
+  <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/about">Mission to Mars</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +52,7 @@
               <a class="nav-link" href="/scrape_latest_news">Latest News</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/scrape_mars_hemi">Mars Hemispheres</a>
+                <a class="nav-link" href="/hemi">Mars Hemispheres</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/data">Mars Data</a>
@@ -52,8 +60,11 @@
           </ul>
         </div>
       </nav>
+      <div class="bg1">
         {% block content %} {% endblock %}
+          
 
+    </div>
     </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

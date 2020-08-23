@@ -39,11 +39,11 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/Mars_app")
 @app.route("/home")
 def welcome():
     # pull information from the mongo db
-    pictures = mongo.db.mars_pic.find()
+ 
     news = mongo.db.mars_news.find_one()
     images = mongo.db.mars_img.find_one()
     
-    return render_template('index.html', pictures=pictures, news=news, mars_img=images)
+    return render_template('index.html', news=news, mars_img=images)
 
 
 @app.route("/about")
@@ -56,12 +56,17 @@ def about():
 def data():
 
     images = mongo.db.mars_img.find_one()
-    # data = mongo.db.mars_data.find_one()
-    with open('Resources/mars_facts.html', 'r') as file:
-        data = file.read()
+    data = mongo.db.mars_data.find_one()
 
     return render_template('data.html', title='Mars Data', mars_img=images, data=data)
 
+@app.route("/hemi")
+def hemi():
+
+    images = mongo.db.mars_img.find_one()
+    pictures = mongo.db.mars_pic.find()
+
+    return render_template('hemi.html', title='Mars Hemispheres', mars_img=images, pictures=pictures)
 
 @app.route("/scrape_feature_image")
 def scrape_feature_image():
@@ -91,9 +96,11 @@ def scrape_latest_news():
 def scrape_mars_data():
     # Run the scrape function
     mars_data = mtm.scrape_mars_data()
+    
+    data_dict = {'filename' : mars_data}
 
     # Update the Mongo database using update and upsert=True
-    mongo.db.mars_data.update({}, mars_data, upsert=True)
+    mongo.db.mars_data.update({}, data_dict, upsert=True)
 
     # Return template and data
     return redirect("/data")

@@ -1,24 +1,13 @@
 {% extends "layout.html" %}
 {% block content %}
 
-    
-
-        <div class=" jumbotron text-center  pt-3 pb-1" style="filter:alpha(opacity=50); opacity:0.5;">
-            <p><strong>Latest News:</strong>  {{news.title}}</p>
+        <div class=" jumbotron text-left  pt-3 pb-2" style="filter:alpha(opacity=70); opacity:0.7;">
+            <h1><strong>Latest News:</strong>  {{news.title}}</h1>
             <br>
-            <p>{{ news.text }}</p>
+            <h2>{{ news.text }}</h2>
         </div>
-        <div >
-            {% if pictures %}
-                {% for pic in pictures %}
-                    <h2>{{ pic.title }}</h2>
-                    <img src={{ pic.url }} alt={{pic.name}} width="200" height="300">
-                {% endfor %}
-            {% else %}
-                <title>Select the Refresh Hemisphere button to see pictures</title>
-            {% endif %}
-       </div>
-       <div class="bg1">
+        <img src="{{ mars_img.url }}" width=100%>
+
 
 
 {% endblock content %}
