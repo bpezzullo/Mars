@@ -27,12 +27,14 @@ def scrape_latest_news():
 
     # print(soup.prettify())
 
-    # results are returned as an iterable list
+    # Find the div class of 'slide'
     results = soup.body.find('div',class_='slide')
 
+    # From here we can grab the description and the title of the latest news article.
     news_p = results.find('div',class_='rollover_description_inner').text
     news_title=results.find('div',class_='content_title').text
 
+    # save this into a dictionary to store in MongoDB
     news = {'title' : news_title, 
             'text' : news_p}
 
@@ -43,18 +45,27 @@ def scrape_latest_news():
 
 def scrape_feature_image():
 
+    # initialize the browser
     browser = init_browser()
 
+    # Go get the browser and click through to get the full image
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
 
+    # Click on the 'Full Image' tag
     browser.click_link_by_partial_text('FULL IMAGE')
+
+    # Click on the 'more info' tag.
     browser.click_link_by_partial_text('more info')
 
+    # set up the page to be reviewed through Beauthiful Soup
     html = browser.html
     soup = BeautifulSoup(html, 'lxml')
+
+    # Find the correct section to get the image
     results = soup.find('section',class_='content_page module').find('figure',class_='lede').find('a')['href']
 
+    # We want the full URL
     feaured_image_url = {'url' : 'https://www.jpl.nasa.gov' + results}
 
     
@@ -100,12 +111,16 @@ def scrape_mars_hemi():
     soup = BeautifulSoup(response.text, 'lxml')
 
     # print(soup.prettify())
-
+    # grab the list of hemispheres from the web page.
     results = soup.body.find_all('div',class_='item')
 
     browser = init_browser()
 
+    # Initialze the variable to store the results
     hemisphere_image_urls = []
+
+    # Loop through the items in the results variable.  Each one is an hemisphere.
+    # Click on the link to get you to that page and pull the full image.
 
     for result in results:
 
@@ -115,13 +130,19 @@ def scrape_mars_hemi():
             # Identify and return title of listing
             title = result.find('div',class_='description').find('h3').text
 
+            # set up the URL tl click to the next page
             browser.visit(url)
         
             time.sleep(1)
-        
+
+            # for each hemisphere click on the title / link to get to the next page.
             browser.click_link_by_partial_text(title)
+
+            # grab the page to search through for the image
             html = browser.html
             soup = BeautifulSoup(html, 'lxml')
+
+            # Grab the image from the page.
             link = soup.body.find('div',class_='container').find('div',class_='downloads').li.a['href']
 
             # Run only if title, and link are available
@@ -137,6 +158,9 @@ def scrape_mars_hemi():
             
         except Exception as e:
             print(e)
+
+        
+        # This is repeated for each Hemisphere.
 
     
     # Quite the browser after scraping

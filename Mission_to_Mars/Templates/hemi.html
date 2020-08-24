@@ -1,24 +1,23 @@
 {% extends "layout.html" %}
 
 {% block content%}
-    <h1>Mars Facts</h1>
-    <div >
+    <h1 class="mtitle">Mars Hemispheres</h1>
         <row>
                 {% if pictures %}
                     {% for pic in pictures %}
-                    <div class="col-sm-3">
+
+                    <div class="col-sm-6">
+
                         <div class="card my-2 mr-1" >
                             <div class="card-body">
-                            <img class="card-img-top" src="{{ pic.url }}" alt="{{pic.title}}" width="45%">
+                            <img class="card-img-top" src="{{ pic.url }}" alt="{{pic.title}}" width="100%">
                             <h5 class="card-title">{{pic.title}}</h5>
                         </div>
                       </div>
+
                     </div>
-                    {% endfor %}
-                {% else %}
-                <p><a class="btn btn-primary btn-lg" href="/scrape_mars_hemi" role="button">Refresh the Hemispheres pictures</a></p>
+
+                    {% endfor %}               
                 {% endif %}
         </row>
-   </div>
-
 {% endblock content %}

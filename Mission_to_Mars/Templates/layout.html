@@ -8,8 +8,8 @@
 
     <style>
         .bg1 {
-            /* The image used */
-            background-image: url({{ mars_img.url }});
+          /* The image used */
+          background-image: url({{ mars_img.url }});
           
           /* Full height */
           height: 100%;
@@ -23,6 +23,10 @@
           background-color:white;
           font-size: 20px;
           size: 40px;
+        }
+        .mtitle {
+          background-color:white;
+          width: 45%;
         }
         .mabout {
           font-size: 20px;
@@ -46,17 +50,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/scrape_feature_image">Refresh Background <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="/scrape_latest_news">Latest News</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="/hemi">Mars Hemispheres</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="/data">Mars Data</a>
             </li>
+            <li class="nav-item dropdown active">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Refresh Data
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/scrape_feature_image">Background image</a>
+                <a class="dropdown-item" href="/scrape_mars_hemi">Hemispheres pictures</a>
+                <a class="dropdown-item" href="/scrape_latest_news">Latest news</a>
+                <a class="dropdown-item" href="/scrape_mars_data">Statistics</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/scrape_all">All</a>
+              </div>
+            </li>
+      
           </ul>
         </div>
       </nav>
