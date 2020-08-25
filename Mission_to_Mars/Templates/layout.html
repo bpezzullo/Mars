@@ -9,7 +9,7 @@
     <style>
         .bg1 {
           /* The image used */
-          background-image: url({{ mars_img.url }});
+          background-image: url("{{ mars_img.url }}");
           
           /* Full height */
           height: 100%;
@@ -20,12 +20,13 @@
           background-size: cover;
         }
         .dataframe {
-          background-color:white;
+          background-color:whitesmoke;
           font-size: 20px;
           size: 40px;
+          text-align: center;
         }
         .mtitle {
-          background-color:white;
+          background-color:whitesmoke;
           width: 45%;
         }
         .mabout {
@@ -40,7 +41,7 @@
     {% endif %}
 </head>
 <body>
-  <div class="container-fluid">
+  <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/about">Mission to Mars</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
