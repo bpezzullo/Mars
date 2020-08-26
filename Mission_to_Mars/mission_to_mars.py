@@ -104,7 +104,7 @@ def scrape_mars_data():
 # ## https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars
 
 def scrape_mars_hemi():
-    url='https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    url="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'"
     # Retrieve page with the requests module
     response = requests.get(url)
     # Create BeautifulSoup object; parse with 'lxml'
