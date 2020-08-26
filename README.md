@@ -1,3 +1,25 @@
+Built a set of web pages that allows the user to pull data from the NASA web sites.  The submition includes 2 main folders.  Mission to mars folder includes the following
+  - Mission_to_mars notebook which was used to do the initial analysis
+  - Mission_to_mars python file which I converted from the notebook and then created the    
+      routines to used to scrape the data.
+  - app.py python file which is the main file to start the website.  It calls the routines 
+      from the mission_to_mars file to scrape the data and then save the data into MongoDB. 
+      The application creates a Mars_app Mongo database and multiple collections.
+          mars_data for the filename where I store the statistic table html.  I used this
+               before understanding about using ' | safe'
+          mars_img for the image used for the background
+          mars_news for the latest news
+          mars_pic for the documents with the hemispheres
+  - miscellaneous folders associated with converting the python Mission_to_mars file to ddls
+  - Template folder storing the html files
+  - Resources - obsolete
+  - images folder showing the suggested web pages
+
+The other main folder is 'Screen shots' which contains the latest screen shots of the application running on my system.
+
+After navigating to the Mission_to_mars folder run 'python app.py'  After started up navigate to the suggested web site.  Ensuring you have MongoDB running use the drop down menu and refresh all of the data at one time or individually.  Access the about page to explain the navbar links.  I built my own version of the websites, but provide all the information being asked for.
+
+Requirements
 # Web Scraping Homework - Mission to Mars
 
 ![mission_to_mars](Images/mission_to_mars.png)
