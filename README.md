@@ -20,9 +20,7 @@ Built a set of web pages that allows the user to pull data from the NASA web sit
           mars_pic for the documents with the hemispheres
   - miscellaneous folders associated with converting the python Mission_to_mars file to ddls
   - Template folder storing the html files
-  - Resources - obsolete
-  - images folder showing the suggested web pages
-
+  - Screenshots folder showing the final web pages
 
 ![About](Screenshots/Introduction_page.png)
 
