@@ -23,6 +23,7 @@ Built a set of web pages that allows the user to pull data from the NASA web sit
   - Resources - obsolete
   - images folder showing the suggested web pages
 
+The other main folder is 'Screenshots' which contains the latest screen shots of the application running on my system.
 
 ![About](Screenshots/Introduction_page.png)
 
