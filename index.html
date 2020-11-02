@@ -3,89 +3,142 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Spotify Project</title>
+    <title>mars mission</title>
 
     <!-- Bring in our bootstrap stylesheet -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
+        body,
+        html {
+            height: 100%;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
         .dataframe {
-            background-color: lightgrey;
+            /* background-color:lightgrey; */
             font-size: 20px;
             size: 40px;
             margin-top: 50px;
         }
 
+        .bg {
+            background-image: url('analytics-1907993__340.jpg');
+
+            /* Half height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
         .mtitle {
-            background-color: whitesmoke;
-            width: 45%;
+
+            width: 100%;
             text-align: center;
+            font-family: sans-serif;
+            font-style: italic;
+            font-size: 80px;
+        }
+
+
+        a:link {
+            color: #ccc;
+        }
+
+        /* visited link */
+        a:visited {
+            color: #043655;
+        }
+
+        /* mouse over link */
+        a:hover {
+            color: #8ebf42;
+        }
+
+        /* selected link */
+        a:active {
+            color: #800000;
         }
 
         .mabout {
             font-size: 20px;
         }
+
+        .p {
+            padding-left: 5px;
+        }
+
+        .rgba-gradient {
+            background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+            background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+            background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)));
+            background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+            background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
+        }
     </style>
 </head>
 
 <body>
-    <hr>
-    <h1 class="mtitle">Web Scraping</h1>
-    <hr>
-
     <!-- Our rows function in containers (grid created). -->
-    <div class="container dataframe">
-
+    <div class="container rgba-gradient">
+        <hr>
+        <h1 class="mtitle">Web Scraping</h1>
+        <hr>
         <div class="row dataframe">
             <div class="col-md-11">
-            <p> </p>
-            <u>Goal:</u>
-            Built a set of web pages that allows the user to pull data from the NASA web sites
-            <ul>
-                
-            <li><a href="https://mars.nasa.gov/news/">NASA Mars News Site for the latest news</a></li>
-            <li><a href="https://space-facts.com/mars/">Facts for Mars facts</a></li>
-            <li><a href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars">Feature images</a></li>
-            <li><a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars">Pictures of Mars' hemispheres</a></li>
-            </ul>
+                <p> </p>
+                <u>Goal:</u>
+                Built a set of web pages that allows the user to pull data from the NASA web sites
+                <ul>
 
-            Mission to Mars folder includes the following
-            <br>
-            - Mission_to_mars notebook which was used to do the initial analysis
-            <br>
-            - Mission_to_mars python file which I converted from the notebook and then created the
-            routines used to scrape the data.
-            <br>
-            - app.py python file which is the main file to start the website. It calls the routines
-            from the mission_to_mars file to scrape the data and then save the data into MongoDB.
-            The application creates a Mars_app Mongo database and multiple collections.
-            mars_data for the filename where I store the statistic table html. I used this
-            before understanding about using ' | safe'
-            mars_img for the image used for the background
-            mars_news for the latest news
-            mars_pic for the documents with the hemispheres
-            <br>
-            - miscellaneous folders associated with converting the python Mission_to_mars file to ddls
-            <br>
-            - Template folder storing the html files
-            <br>
-            - Screenshots folder showing the final web pages
+                    <li><a href="https://mars.nasa.gov/news/">NASA Mars News Site for the latest news</a></li>
+                    <li><a href="https://space-facts.com/mars/">Facts for Mars facts</a></li>
+                    <li><a href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars">Feature images</a></li>
+                    <li><a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars">Pictures
+                            of Mars' hemispheres</a></li>
+                </ul>
 
+                Mission to Mars folder includes the following
+                <br>
+                <ul>
+                    <li>Mission_to_mars notebook which was used to do the initial analysis </li>
+                    <li>Mission_to_mars python file which I converted from the notebook and then created the
+                        routines used to scrape the data.</li>
+                    <li>app.py python file which is the main file to start the website. It calls the routines
+                        from the mission_to_mars file to scrape the data and then save the data into MongoDB.
+                        The application creates a Mars_app Mongo database and multiple collections.
+                        mars_data for the filename where I store the statistic table html. I used this
+                        before understanding about using ' | safe'</li>
+                    <ul>
+                        - mars_img for the image used for the background
+                        <br>
+                        - mars_news for the latest news
+                        <br>
+                        - mars_pic for the documents with the hemispheres
+                    </ul>
+                    <li>miscellaneous folders associated with converting the python Mission_to_mars file to ddls </li>
+                    <li>Template folder storing the html files</li>
+                    <li>Screenshots folder showing the final web pages with examples below</li>
+                </ul>
+
+            </div>
         </div>
-    </div>
         <div class="row dataframe">
             <div class="col-md-11">
-            <br></br>
-            <u>Links and information</u>
-            <br>
-            <p> </p></br>
-
-            <a href="Screenshots/Screens_shots_of_web_pages.pptx">PowerPoint presentation</a>
-            <img src="Screenshots/Introduction_page.png" alt="About">
-            <img src="Screenshots/Initial_page.png" alt="Pulled Data">
-            <img src="Screenshots/Ability_to_rescrape.png" alt="Rescrape for new data">
-            <img src="Screenshots/Mars_hemispheres.png" alt="Hemisphere">
+                <u>Links and information</u>
+                <p> </p>
+                <br>
+                <a href="Screenshots/Screens_shots_of_web_pages.pptx">PowerPoint presentation</a>
+                <p>  </p>
+                <img src="Screenshots/Introduction_page.png" alt="About">
+                <img src="Screenshots/Initial_page.png" alt="Pulled Data">
+                <img src="Screenshots/Ability_to_rescrape.png" alt="Rescrape for new data">
+                <img src="Screenshots/Mars_hemispheres.png" alt="Hemisphere">
+            </div>
         </div>
-    </div>
     </div>
 </body>
