@@ -22,13 +22,13 @@ Built a set of web pages that allows the user to pull data from the NASA web sit
   - Template folder storing the html files
   - Screenshots folder showing the final web pages
 
-![About](Screenshots/Introduction_page.png)
+[About](Screen shots/Introduction_page.png)
 
-![Pulled Data](Screenshots/Initial_page.png)
+![Pulled Data](Screen shots/Initial_page.png)
 
-![Rescrape for new data](Screenshots/Ability_to_rescrape.png)
+![Rescrape for new data](Screen shots/Ability_to_rescrape.png)
 
-![Hemisphere](Screenshots/Mars_hemispheres.png)
+![Hemisphere](Screen shots/Mars_hemispheres.png)
 
-![Powerpoint presentation](Screenshots/Screens_shots_of_web_pages.pptx)
+![Powerpoint presentation](Screen shots/Screens_shots_of_web_pages.pptx)
 
