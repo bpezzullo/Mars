@@ -22,7 +22,7 @@ Built a set of web pages that allows the user to pull data from the NASA web sit
   - Template folder storing the html files
   - Screenshots folder showing the final web pages
 
-![About](Screenshots/Introduction_page.png)
+[About](Screenshots/Introduction_page.png)
 
 ![Pulled Data](Screenshots/Initial_page.png)
 
